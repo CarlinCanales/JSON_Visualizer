@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>json vizualier</title>
+
+    <style>
+
+        /*ul, li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .jv-level-3 {
+            display: none;
+        }
+
+        .jv-level-1 {
+            border: 1px solid black;
+            border-right: none;
+            display: table;
+            width: 100%;
+        }
+
+        .jv-level-1 > li {
+            position: relative;
+            padding: 10px;
+            display: table-cell;
+            width: auto;
+            background: gray;
+            border-right: 1px solid black;
+            text-align: center;
+        }
+
+        .jv-level-1 > li:hover {
+            cursor: pointer;
+        }
+
+        .jv-level-1 > li:hover .jv-level-2,
+        .jv-level-1 > li:hover .jv-level-2 li:hover {
+            display: block;
+        }
+
+        .jv-level-2 {
+            position: absolute;
+            top: 38px;
+            left: -1px;
+            display: none;
+            background: lightgray;
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .jv-level-2 > li {
+            padding: 5px;
+            border-bottom: 1px solid black;
+            text-align: left;
+        }
+
+        .jv-level-2 > li:hover {
+            cursor: pointer;
+            background: black;
+            color: white;
+        }
+
+        .jv-level-2 > li:last-child {
+            border-bottom: none;
+        }*/
+
+        .jv-li {
+            background: gray;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .jv-type-string {
+            border: 1px solid blue;
+        }
+
+        .jv-type-number {
+            border: 1px solid red;
+        }
+
+        .jv-type-object {
+            border: 1px solid yellow;
+        }
+
+        .jv-type-array {
+            border: 1px solid yellow;
+        }
+
+        .jv-type-undefined {
+            border: 1px solid black;
+        }
+
+        .jv-type-function {
+            border: 1px solid brown;
+        }
+
+        .jv-type-boolean {
+            border: 1px solid orange;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+<div id="tree"></div>
+
+</footer>
+<script src="src/json-vizualizer.js"></script>
+<script>
+
+
+var topMenu = new JsonViz();
+
+topMenu
+    .append({
+        "Item 1": {
+            "Sub Item 1": undefined,
+            "Sub Item 2": null
+        },
+        "Item 2": {
+            "Sub Item 1": function() {
+                console.log("this is a function");
+            },
+            "Sub Item 2": 100284649
+        },
+        "Item 3": {
+            "Sub Item 1": {
+                "Sub Sub Item 1": "Sub Sub Item 1"
+            },
+            "Sub Item 2": ["Sub Item 2", {"object": "inside array"}, null, undefined, function(){ return true }, false],
+            "Boolean": true
+        }
+    })
+    .to("#tree")
+    .done(function(){
+        console.log("completed");
+    });
+
+
+</script>
+
+
+
+</body>
+</html>
